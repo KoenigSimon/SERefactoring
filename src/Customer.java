@@ -31,10 +31,10 @@ class Customer
         result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
         for (Rental rental : customer.rentals) {
-            double thisAmount;
+            double rentalPrice;
 
             //determine amounts for rental line
-            thisAmount = rental.amountFor();
+            rentalPrice = rental.amountFor();
 
             // add frequent renter points
             frequentRenterPoints++;
@@ -44,8 +44,8 @@ class Customer
                 frequentRenterPoints++;
 
             //show figures for this rental
-            resultBuilder.append("\t").append(rental.getMovie().getTitle()).append("\t").append("\t").append(rental.getDaysRented()).append("\t").append(thisAmount).append("\n");
-            totalAmount += thisAmount;
+            resultBuilder.append("\t").append(rental.getMovie().getTitle()).append("\t").append("\t").append(rental.getDaysRented()).append("\t").append(rentalPrice).append("\n");
+            totalAmount += rentalPrice;
         }
 
         //add footer lines
@@ -56,24 +56,24 @@ class Customer
 
     private double amountFor(Rental rental) 
     {
-        double thisAmount = 0;
+        double rentalPrice = 0;
         switch (rental.getMovie().getPriceCode()) 
         {
             case Movie.REGULAR:
-                thisAmount += 2;
+                rentalPrice += 2;
                 if (rental.getDaysRented() > 2)
-                    thisAmount += (rental.getDaysRented() - 2) * 1.5;
+                    rentalPrice += (rental.getDaysRented() - 2) * 1.5;
                 break;
             case Movie.NEW_RELEASE:
-                thisAmount += rental.getDaysRented() * 3;
+                rentalPrice += rental.getDaysRented() * 3;
                 break;
             case Movie.CHILDRENS:
-                thisAmount += 1.5;
+                rentalPrice += 1.5;
                 if (rental.getDaysRented() > 3)
-                    thisAmount += (rental.getDaysRented() - 3) * 1.5;
+                    rentalPrice += (rental.getDaysRented() - 3) * 1.5;
                 break;
         }
-        return thisAmount;
+        return rentalPrice;
     }
 
 }
