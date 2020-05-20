@@ -12,9 +12,9 @@ class Customer
         name = newName;
     }
 
-    public void addRental(Rental arg) 
+    public void addRental(Rental rental) 
     {
-        rentals.addElement(arg);
+        rentals.addElement(rental);
     }
 
     public String getName ()
