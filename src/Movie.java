@@ -22,9 +22,9 @@ public class Movie
     {
         priceCode = arg;
     }
-    
+
     public String getTitle ()
     {
         return title;
-    };
+    }
 }

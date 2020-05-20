@@ -6,21 +6,21 @@ class Customer
 {
     private String name;
     private Vector rentals = new Vector();
-    
+
     public Customer (String newName)
     {
         name = newName;
-    };
+    }
 
     public void addRental(Rental arg) 
     {
         rentals.addElement(arg);
-    };
+    }
 
     public String getName ()
     {
         return name;
-    };
+    }
 
     public String statement() 
     {
