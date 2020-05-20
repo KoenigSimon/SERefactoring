@@ -44,7 +44,7 @@ class Customer
                 frequentRenterPoints++;
 
             //show figures for this rental
-            resultBuilder.append("\t").append(rental.getMovie().getTitle()).append("\t").append("\t").append(rental.getDaysRented()).append("\t").append(rentalPrice).append("\n");
+             result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(rentalPrice) + "\n"
             totalAmount += rentalPrice;
         }
 
