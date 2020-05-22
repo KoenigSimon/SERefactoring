@@ -3,7 +3,7 @@ import java.util.*;
 class Customer 
 {
     private String name;
-    private Vector rentals = new Vector();
+    private Vector<Rental> rentals = new Vector<Rental>();
 
     public Customer (String newName)
     {
@@ -30,21 +30,21 @@ class Customer
 
         while (enum_rentals.hasMoreElements()) {
             double thisAmount = 0;
-            Rental each = (Rental) enum_rentals.nextElement();
+            Rental rental = (Rental) enum_rentals.nextElement();
 
-            //determine amounts for each line
-            thisAmount = amountFor(each);
+            //determine amounts for rental line
+            thisAmount = amountFor(rental);
 
             // add frequent renter points
             frequentRenterPoints ++;
-            // add bonus for a two day new release rental
 
-            if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1) 
+            // add bonus for a two day new release rental
+            if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1) 
                 frequentRenterPoints ++;
-                
+
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(thisAmount) + "\n";
-            totalAmount += thisAmount;
+            result += "\t" + rental.getMovie().getTitle()+ "\t" + "\t" + rental.getDaysRented() + "\t" + String.valueOf(thisAmount) + "\n";
+            totalAmount += amountFor(rental) + thisAmount;
         }
 
         //add footer lines
