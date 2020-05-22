@@ -10,7 +10,7 @@ class Customer
         name = newName;
     }
 
-    public void addRental(Rental rental) 
+    public void addRental(Rental rental)
     {
         rentals.addElement(rental);
     }
@@ -24,7 +24,7 @@ class Customer
     {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        Enumeration enum_rentals = rentals.elements();	    
+        Enumeration<Rental> enum_rentals = rentals.elements();	    
         String result = "Rental Record for " + this.getName() + "\n";
         result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
